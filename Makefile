@@ -3,8 +3,10 @@ SRCS	= mkhomedir.c
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= mkhomedir
+SSHRC	= sshrc
 
 DESTDIR	= /usr/local/bin
+DESTSSH = /etc/ssh
 
 UNAME_S := $(shell uname -s)
 
@@ -35,3 +37,5 @@ re:		fclean all
 install:	${NAME}
 		install -d $(DESTDIR)
 		install -m 4711 ${NAME} $(DESTDIR)/
+		install -d $(DESTSSH)
+		install -m 755 ${SSHRC} $(DESTSSH)/
