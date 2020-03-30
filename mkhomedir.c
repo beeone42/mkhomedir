@@ -37,6 +37,7 @@ int main(int argc, char **argv)
 
   //  printf("uid: %u, gid: %u, home: %s\n", uid, gid, p->pw_dir);
   mkdir(p->pw_dir, 0700);
+  chmod(p->pw_dir, 0700);
   chown(p->pw_dir, uid, gid);
 
   return (0);
